@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 11pt;
+    font-family: Helvetica Neue, Helvetica, sans-serif;
+    line-height: 1.5em;
+    color: #333;
+}
+
+.unread {
+    font-weight: bold;
+}
+
+#nav {
+    width: 150px;
+    float: left;
+    margin-bottom: 20px;
+
+    #tag-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        hr {
+            border: 0;
+            padding: 0;
+            margin: 1px 0 0 0;
+            color: #e6e6e6;
+            background-color: #e6e6e6;
+            height: 1px;
+        }
+        li {
+            padding: 5px 10px 7px 20px;
+            &.selected {
+                border-left: 10px solid #eaeaff;
+                padding-left: 10px;
+                color: #223f99;
+                font-weight: bold;
+            }
+        }
+    }
+}
+#main {
+    margin-left: 165px;
+
+    #thread-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .thread {
+        display: block;
+        height: 1.2em;
+        padding: 7px 5px 9px 2px;
+        background: #f7f7fc;
+        border-bottom: 1pt solid #e6e6e6;
+
+        &.unread {
+            background-color: white;
+        }
+
+        &.highlighted {
+            background-color: #FFD;
+        }
+
+        span {
+            display: inline-block;
+    }
+        .tags {
+            padding: 0;
+            margin: 0;
+            float: left;
+            li {
+                list-style-type: none;
+                display: inline;
+                background: #77ee66;
+                height: 100%;
+                padding: 2px 5px;
+                margin-right: 8px;
+                border-radius: 5px;
+                text-transform: lowercase;
+
+                &.tag1 {
+                    background: #ff6699;
+                }
+                &.tag2 {
+                    background: #af99de;
+                }
+            }
+        }
+
+        .subject {
+            float: left;
+        }
+
+        .checkbox {
+            float: left;
+            width: 20px;
+        }
+        .star {
+            float: left;
+            width: 20px;
+            margin: 0 5px 0 0;
+            color: #bbb;
+            font-size: 18pt;
+            font-weight: normal;
+
+            &.starred {
+                color: #3355ff;
+            }
+        }
+        .authors {
+            float: left;
+            width: 190px;
+        }
+
+        .attachment {
+            font-size: 18pt;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .attachment, .timestamp {
+            float: right;
+            text-align: right;
+            width: 30px;
+        }
+        .timestamp {
+            width: 70px;
+        }
+    }
+
+    #email-footer {
+        font-size: .9em;
+        color: #666;
+    }
+}
+
+#footer {
+    clear: both;
+    margin: 20px 0;
+    color: #666;
+    font-size: .9em;
+}
