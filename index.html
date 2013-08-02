@@ -12,8 +12,11 @@
 
 <body ng-controller="ThreadCtrl">
   <div id="header">
+    <img src="img/snowflake-true.png" class="left">
     <h1>snowfall</h1>
   </div>
+
+  <div class="clearer"></div>
 
   <section id="nav">
       <ul id="tag-list">
@@ -22,7 +25,7 @@
         <hr>
         <li class="read-{{ allRead(tag) }}" ng-repeat="tag in tags">{{ tag.name}} ({{ unreadCount(tag) }})</li>
       </ul>
-    </section>
+  </section>
 
     <section id="main">
       <ul id="actions">
