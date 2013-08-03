@@ -1,8 +1,14 @@
 @blue: #223F99;
 // #3f2d99; 
 @padding-left: 10px;
-@highlight: #efddff;
+@light-blue: @blue + #af90af;
+@highlight: @blue + #cac;
+@read: #fcfcfc;
+// #efddff;
+@border: @highlight;
 @tag0: #ff6699;
+
+@actions-height: 38px;
 
 body {
     margin: 0;
@@ -35,14 +41,6 @@ body {
     font-weight: bold;
 }
 
-h1 {
-    color: @blue;
-    font-weight: 300;
-    font-size: 3em;
-    margin-top: 0px;
-    padding-top: .6em;
-}
-
 .clearer {
     clear: both;
 }
@@ -59,40 +57,63 @@ h1 {
 
 #header {
     padding-left: @padding-left;
-    margin: 0;
+    margin: 1px 0 0 0;
+
+    h1 {
+        color: @blue;
+        font-weight: 300;
+        font-size: 3em;
+        margin-top: 0px;
+        padding-top: .4em;
+    }
 }
 
 #nav {
-    width: 150px;
+    width: 170px;
     float: left;
     margin-bottom: 20px;
+
+    .new-message-button {
+        display: block;
+        height: @actions-height - 7px;
+        padding: 7px @padding-left 0 @padding-left;
+        margin: 0 0 5px 0;
+        background: @blue;
+        //border-radius: 10px;
+        text-align: center;
+        font-size: 1.2em;
+        color: white;
+        text-transform: lowercase;
+    }
 
     #tag-list {
         list-style-type: none;
         padding: 0;
         margin: 0;
+        text-transform: lowercase;
 
         hr {
             border: 0;
             padding: 0;
             margin: 1px 0 0 0;
-            color: #e6e6e6;
-            background-color: #e6e6e6;
+            background-color: @border;
             height: 1px;
         }
         li {
             padding: 5px 10px 7px 20px;
+
             &.selected {
-                border-left: @padding-left solid @blue + #999;
+                border-left: @padding-left solid @light-blue;
                 padding-left: @padding-left;
                 color: @blue;
                 font-weight: bold;
             }
+
         }
     }
 }
 #main {
-    margin-left: 165px;
+    margin-left: 195px;
 
     #thread-list {
         list-style-type: none;
@@ -101,10 +122,11 @@ h1 {
 
     .thread, #actions {
         display: block;
-        height: 1.2em;
-        padding: 7px 5px 10px 2px;
-        background: #f8f7fc;
-        border-bottom: 1pt solid #e6e6e6;
+        height: 1.5em;
+        padding: 10px 2px 10px 4px;
+        background: @read;
+        border-bottom: 1pt solid @border;
+        margin: 0;
 
         &.read-false {
             background-color: white;
@@ -112,7 +134,7 @@ h1 {
 
         &.checked-true {
             background-color: @highlight;
-            border-bottom: 1pt solid #d7d0e7;
+            border-bottom: 1pt solid @highlight - #191919;
         }
 
         a {
@@ -122,7 +144,8 @@ h1 {
 
         span {
             display: inline-block;
-    }
+        }
+
         .tags {
             padding: 0;
             margin: 0;
@@ -150,14 +173,17 @@ h1 {
         }
         .star {
             float: left;
-            margin: 0 5px 0 2px;
-            font-size: 18pt;
+            margin: -2px 5px 0 2px;
             font-weight: normal;
         }
 
-        .star img {
-            width: 19px;
+        .star img, .tagger img {
+            height: 1.8em;
             cursor: pointer;
+        }
+
+        .tagger img {
+            height: 1.4em;
         }
 
         .authors {
@@ -167,8 +193,7 @@ h1 {
 
         .tagger {
             float: left;
-            width: 20px;
-            margin: 0 5px 0 2px;
+            margin: 0 8px 0 12px;
             cursor: pointer;
         }
 
@@ -194,21 +219,42 @@ h1 {
     }
 
     #actions {
-        background: @highlight;
+        background: @light-blue;
         border: 1pt solid white;
-        border-radius: 10px;
+        border-radius: 5px;
+        height: @actions-height;
+        margin: 0;
+        padding: 0 0 0 4px;
 
-        span {
-            padding: 0 5px 0 2px;
-            cursor: pointer;
+        a {
+            display: inline-block;
+            padding: 1px 18px 0 18px;
+            background-color: rgba(255,255,255,.3);
+            margin: 0 -4px 0 0;
 
-            &.divider {
-                cursor: inherit;
+            &:hover {
+                background-color: rgba(255,255,255,.8);
+            };
+
+            img {
+                height: 32px;
             }
         }
 
+        .divider {
+            display: inline-block;
+            height: 30px;
+            width: 1.8em;
+        }
+
         .tag {
-            width: 120px;
+        }
+
+        .check-all {
+            padding: 10px 0;
+            display: block;
+            float: left;
+            margin: 0;
         }
     }
 }

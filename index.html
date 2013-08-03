@@ -12,51 +12,56 @@
 
 <body ng-controller="ThreadCtrl">
   <div id="header">
-    <img src="img/snowflake-true.png" class="left">
+    <img src="img/snowflake-true.png" class="left" width="55">
     <h1>snowfall</h1>
   </div>
 
   <div class="clearer"></div>
 
   <section id="nav">
+    <div class="new-message-button">
+      Compose
+    </div>
       <ul id="tag-list">
-        <li class="selected read-{{ allRead() }}">Inbox ({{ unreadCount() }})</li>
+        <li class="inbox selected read-{{ allRead() }}">Inbox ({{ unreadCount() }})</li>
         <li>Sent</li>
+        <li>Drafted</li>
         <hr>
         <li class="read-{{ allRead(tag) }}" ng-repeat="tag in tags">{{ tag.name}} ({{ unreadCount(tag) }})</li>
       </ul>
   </section>
 
-    <section id="main">
-      <ul id="actions">
-        <input type="checkbox" class="check-all" ng-click="toggleCheckAll()">
-        <span class="archive" ng-click="archive()">A</span>
-        <span class="trash">T</span>
-        <span class="spam">S</span>
-        <span class="mark-as-read">R/U</span>
-        <span class="divider"> | </span>
-        <span class="tag">[ ]</span>
-        <span class="filter">F</span>
-        <span class="mute">M</span>
-      </ul>
-      <ul id="thread-list">
-        <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads|filter:thread.inInbox">
-          <span class="checkbox"><input class="toggle" type="checkbox" ng-model="thread.isChecked" /></span>
-          <span class="star"><img src="img/snowflake-{{ thread.isStarred }}.png"></span>
-          <span class="authors">
-            {{ thread.authors | commafy }}
-          </span>
-
-          <span class="tagger">[ ]</span>
-          <ul class="tags">
-              <li ng-repeat="tag in thread.tags|orderBy:'name'" style="background-color: #{{ tag.color }};">{{ tag.name }}</li>
-          </ul> 
-          <span class="subject"><a href="#">{{ thread.subject }}</a></span>
-
-          <span class="timestamp">11:02 am</span>
-          <span class="attachment">{{ thread.hasAttachment }}</span>
-        </li>
+  <section id="main">
+    <ul id="actions">
+      <span class="check-all"><input type="checkbox" ng-click="toggleCheckAll()"></span>
+      <span class="divider"></span>
+      <a class="archive" title="Archive" ng-click="archive()"><img src="img/archive.png"></a>
+      <a class="trash" title="Trash"><img src="img/trash.png"></a>
+      <a class="spam" title="Spam"><img src="img/spam.png"></a>
+      <a class="mark-as-read" title="Mark as read"><img src="img/read.png"></a>
+      <span class="divider"></span>
+      <a class="tag" title="Tag"><img src="img/tag.png"></a>
+      <a class="filter" title="Filter">F</a>
+      <a class="mute" title="Mute"><img src="img/mute.png"></a>
     </ul>
+    <ul id="thread-list">
+      <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads|filter:thread.inInbox">
+        <span class="checkbox"><input class="toggle" type="checkbox" ng-model="thread.isChecked" /></span>
+        <span class="star"><img src="img/snowflake-{{ thread.isStarred }}.png"></span>
+        <span class="authors">
+          {{ thread.authors | commafy }}
+        </span>
+
+        <span class="tagger"><img src="img/tag-inline.png"></span>
+        <ul class="tags">
+            <li ng-repeat="tag in thread.tags|orderBy:'name'" style="background-color: #{{ tag.color }};">{{ tag.name }}</li>
+        </ul> 
+        <span class="subject"><a href="#">{{ thread.subject }}</a></span>
+
+        <span class="timestamp">11:02 am</span>
+        <span class="attachment">{{ thread.hasAttachment }}</span>
+      </li>
+  </ul>
     <div id="email-footer">
       3.79 GB used so far
     </div>
