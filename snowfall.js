@@ -100,7 +100,7 @@ function ThreadCtrl($scope) {
     };
 
     $scope.allRead = function(tag) {
-        return $scope.unreadCount(tag) == 0;
+        return $scope.unreadCount(tag) === 0;
     };
 
     // actions bar methods
@@ -117,6 +117,7 @@ function ThreadCtrl($scope) {
     };
 
     $scope.archive = function(){
+        console.log('clicked');
         $.each($scope.threads, function(index){
             var thread = $scope.threads[index];
             if (thread.isChecked) {

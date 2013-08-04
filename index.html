@@ -23,8 +23,8 @@
         <li><a href="">Help</a></li>
       </ul>
     </div>
-    <img src="img/snowflake-true.png" class="left" width="55">
-    <h1>snowfall mail</h1>
+    <img src="img/snowflake.png" class="left" width="55">
+    <h1><a href="/">snowfall</a></h1>
   </div>
 
   <div class="clearer"></div>
@@ -48,21 +48,21 @@
   <section id="main">
     <div id="actions">
       <span class="check-all"><input type="checkbox" ng-click="toggleCheckAll()"></span>
-      <span class="divider"></span>
       <a class="archive" title="Archive" ng-click="archive()"><img src="img/archive.png"></a>
       <a class="trash" title="Trash"><img src="img/trash.png"></a>
       <a class="spam" title="Spam"><img src="img/spam.png"></a>
-      <a class="mark-as-read" title="Mark as read"><img src="img/read.png"></a>
       <span class="divider"></span>
       <a class="tag" title="Tag"><img src="img/tag.png"></a>
       <a class="filter" title="Filter">F</a>
+      <span class="divider"></span>
+      <a class="mark-as-read" title="Mark as read"><img src="img/read.png"></a>
       <a class="mute" title="Mute"><img src="img/mute.png"></a>
       <div class="search">
         <input type="text"><button>Search</button>
       </div>
     </div>
     <ul id="thread-list">
-      <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads|filter:thread.inInbox">
+      <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads | filter:thread.inInbox">
         <span class="checkbox"><input class="toggle" type="checkbox" ng-model="thread.isChecked" /></span>
         <span class="star"><img src="img/snowflake-{{ thread.isStarred }}.png"></span>
         <span class="authors">
