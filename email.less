@@ -1,23 +1,29 @@
-@blue: #223F99;
-// #3f2d99; 
-@padding-left: 10px;
-@light-blue: @blue + #af90af;
-@highlight: @blue + #cac;
-@read: #fcfcfc;
+@black: #191926;
+@dark-grey: @black + #191919;
+@blue: #3f2d99; 
+@med-grey: @black + #555;
+@grey: @black + #999;
+@highlight: @black + #ccc;
+@read: #f9f9f9;
 // #efddff;
 @border: @highlight;
 @tag0: #ff6699;
 
+@padding-left: 10px;
 @actions-height: 38px;
+
+@special-text: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;;
+@normal-text: Arial, 'Helvetica Neue', Helvetica, sans-serif;;
 
 body {
     margin: 0;
     padding: 0;
     font-size: 11pt;
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: @normal-text;
+    font-weight: 300;
     line-height: 1.5em;
     min-height: 600px;
-    color: #333;
+    color: @dark-grey;
     background-color: white;
 
     /* background gradient code */
@@ -37,8 +43,24 @@ body {
     /* end gradient */
 }
 
+h1, h2, h3 {
+    font-family: @special-text;
+    font-weight: 100;
+    //letter-spacing: 2px;
+    color: @black;
+}
+
+a {
+    color: @blue + #222;
+    text-decoration: underline;
+
+    &:hover {
+        color: @blue - #333;
+    };
+}
+
 .read-false, .unread {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .clearer {
@@ -60,11 +82,22 @@ body {
     margin: 1px 0 0 0;
 
     h1 {
-        color: @blue;
-        font-weight: 300;
         font-size: 3em;
         margin-top: 0px;
         padding-top: .4em;
+    }
+
+    .settings {
+        float: right;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline;
+                padding: 1px 15px 0 0;
+            }
+        }
     }
 }
 
@@ -72,30 +105,33 @@ body {
     width: 170px;
     float: left;
     margin-bottom: 20px;
+    text-transform: lowercase;
+    font-family: @special-text;
 
     .new-message-button {
         display: block;
-        height: @actions-height - 7px;
-        padding: 7px @padding-left 0 @padding-left;
+        height: @actions-height - 6px;
+        padding: 6px @padding-left 0 @padding-left;
         margin: 0 0 5px 0;
-        background: @blue;
-        //border-radius: 10px;
+        background: @black;
+        border-bottom: 1pt solid @black - #222;
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1.4em;
         color: white;
         text-transform: lowercase;
+        font-family: @special-text;
+        font-weight: 400;
     }
 
     #tag-list {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        text-transform: lowercase;
 
         hr {
             border: 0;
             padding: 0;
-            margin: 1px 0 0 0;
+            margin: 0 0 1px 0;
             background-color: @border;
             height: 1px;
         }
@@ -103,10 +139,10 @@ body {
             padding: 5px 10px 7px 20px;
 
             &.selected {
-                border-left: @padding-left solid @light-blue;
+                border-left: @padding-left solid @grey;
                 padding-left: @padding-left;
-                color: @blue;
-                font-weight: bold;
+                color: @black;
+                font-weight: 700;
             }
 
         }
@@ -117,12 +153,13 @@ body {
 
     #thread-list {
         list-style-type: none;
+        margin: 0;
         padding: 0;
     }
 
     .thread, #actions {
         display: block;
-        height: 1.5em;
+        height: 1.4em;
         padding: 10px 2px 10px 4px;
         background: @read;
         border-bottom: 1pt solid @border;
@@ -214,22 +251,22 @@ body {
     }
 
     #email-footer {
+        margin-top: 1em;
         font-size: .9em;
-        color: #666;
+        color: @med-grey;
     }
 
     #actions {
-        background: @light-blue;
-        border: 1pt solid white;
-        border-radius: 5px;
+        background: @grey;
+        border-bottom: 1pt solid @grey - #222;
         height: @actions-height;
-        margin: 0;
+        margin: 0 0 5px 0;
         padding: 0 0 0 4px;
 
         a {
             display: inline-block;
             padding: 1px 18px 0 18px;
-            background-color: rgba(255,255,255,.3);
+            background-color: rgba(255,255,255,.2);
             margin: 0 -4px 0 0;
 
             &:hover {
@@ -256,12 +293,42 @@ body {
             float: left;
             margin: 0;
         }
+
+        .search {
+            float: right;
+            padding: 2px @padding-left;
+
+            input, button {
+                font-family: inherit;
+                letter-spacing: .5px;
+            }
+
+            input {
+                height: @actions-height - 12px;
+                margin: 0;
+                width: 20em;
+                padding: 2px 2px;
+                border: 1pt solid @med-grey;
+                border-radius: 5px;
+            }
+
+            button {
+                margin: -2px 0 -5px 2px;
+                height: 38px;
+                background: none;
+                border: none;
+
+                &:hover {
+                    background-color: rgba(255,255,255,.8);
+                };
+            }
+        }
     }
 }
 
 #footer {
     clear: both;
     margin: 20px 0;
-    color: #666;
+    color: @med-grey;
     font-size: .9em;
 }

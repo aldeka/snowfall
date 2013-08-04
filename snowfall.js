@@ -68,19 +68,19 @@ function ThreadCtrl($scope) {
         },
         {
             name: 'Friends',
-            color: '77ee66'
+            color: '99ee88'
         },
         {
             name: 'Work',
-            color: 'ff6699'
+            color: 'ff99cc'
         },
         {
             name: 'CCBDC',
-            color: '66ff90'
+            color: '88ffb0'
         },
         {
             name: 'Social',
-            color: '99afde'
+            color: 'aaafef'
         }
     ];
 
