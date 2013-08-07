@@ -107,9 +107,10 @@ function ThreadCtrl($scope) {
 
     $scope.toggleCheckAll = function() {
         var checkStatus = false;
-        if ($('.check-all')[0].checked) {
+        if ($('.check-all input')[0].checked) {
             checkStatus = true;
         }
+        
         $.each($scope.threads, function(index){
             var thread = $scope.threads[index];
             thread.isChecked = checkStatus;

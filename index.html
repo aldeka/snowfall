@@ -62,7 +62,7 @@
       </div>
     </div>
     <ul id="thread-list">
-      <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads | filter:thread.inInbox">
+      <li class="thread read-{{ thread.isRead }} checked-{{ thread.isChecked }}" ng-repeat="thread in threads | filter:{inInbox: true}">
         <span class="checkbox"><input class="toggle" type="checkbox" ng-model="thread.isChecked" /></span>
         <span class="star"><img src="img/snowflake-{{ thread.isStarred }}.png"></span>
         <span class="authors">
